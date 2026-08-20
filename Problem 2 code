@@ -1,0 +1,33 @@
+
+##Loan Eligibility Checker##
+
+Approves a loan only if ALL three conditions are met:
+  1. Credit score  >= 700          (boundary: 700 itself IS approved)
+  2. Annual income >= 30000        (boundary: 30000 itself IS approved)
+  3. Years at job  >= 2            (boundary: 2 itself IS approved)
+
+Pattern used: multiple decision paths joined by boolean AND logic.
+All three conditions must independently be true for approval;
+failing any single one results in denial.
+
+
+
+def check_loan_eligibility():
+    credit_score = int(input("Enter credit score: "))
+    annual_income = float(input("Enter annual income: "))
+    years_at_job = float(input("Enter years at current job: "))
+
+    # Boundary conditions: >= means the boundary value itself qualifies
+    # Boolean logic: all three must be True (AND) for approval
+    credit_ok = credit_score >= 700
+    income_ok = annual_income >= 30000
+    job_ok = years_at_job >= 2
+
+    if credit_ok and income_ok and job_ok:
+        print("Result: Loan Approved")
+    else:
+        print("Result: Loan Denied")
+
+
+if __name__ == "__main__":
+    check_loan_eligibility()
