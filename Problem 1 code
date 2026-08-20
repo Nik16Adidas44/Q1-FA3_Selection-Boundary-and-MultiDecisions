@@ -1,0 +1,27 @@
+
+##Password Length Checker##
+
+Repeatedly prompts the user for a password until its length falls
+within the accepted range of 8-15 characters (inclusive on both ends).
+
+Pattern used: boundary condition (length >= 8 AND length <= 15) combined
+with boolean AND logic, inside a loop that repeats on failure.
+"""
+
+
+def check_password_length():
+    while True:  # Loop until a valid-length password is entered
+        password = input("Enter your password: ")
+        length = len(password)
+
+        # Boundary condition: 8 and 15 are INCLUSIVE (valid range: 8-15)
+        # Boolean logic: both conditions must be true (AND)
+        if length >= 8 and length <= 15:
+            print("Password length is valid.")
+            break  # Exit the loop once a valid password is given
+        else:
+            print("Password too short or too long. Please try again.")
+
+
+if __name__ == "__main__":
+    check_password_length()
